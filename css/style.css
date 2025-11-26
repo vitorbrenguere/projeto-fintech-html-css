@@ -90,7 +90,7 @@ body {
   border-top:1px solid rgba(0,0,0,0.06);
   padding:10px 0;
   background: #fff;
-  z-index: 20;
+  z-index: 999;
 }
 
 .nav-item {
@@ -125,7 +125,6 @@ body {
 /* Desktop */
 @media (min-width: 991px) {
   .container { max-width: 760px; }
-  .bottom-nav { display: none; } /* remove barra inferior no desktop */
 
   header { padding-top: 50px; }
   
