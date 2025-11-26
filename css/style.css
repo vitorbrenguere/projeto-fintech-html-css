@@ -2,6 +2,7 @@ body {
   font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background: #fff;
   color: #111827;
+  margin: 5px;
 }
 
 .profile-img {
@@ -27,9 +28,11 @@ body {
   min-height: 200px;
   background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.02), transparent 10%),
                     radial-gradient(circle at 80% 70%, rgba(255,255,255,0.02), transparent 10%);
+  padding: 28px;
 }
 
-.card-cc .chip-icon, .card-cc .contactless {
+.card-cc .chip-icon, 
+.card-cc .contactless {
   font-size: 1.6rem;
   color: rgba(255,255,255,0.6);
 }
@@ -38,6 +41,8 @@ body {
   font-size: 1.8rem;
   letter-spacing: 3px;
   font-weight:600;
+  line-height: 1.4;
+  word-spacing: 6px;
 }
 
 .card-name {
@@ -47,14 +52,15 @@ body {
   font-weight:600;
 }
 
-/* foto dos cartoes*/
+/* IMAGEM DA BANDEIRA DO CARTÃO */
 .brand-img {
-  width: 880px;
+  width: 600px;
+  max-width: 100%;
   height:auto;
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
 }
 
-/* Icones Menus */
+/* Ícones Menus */
 .quick-icon {
   width:64px;
   height:64px;
@@ -69,27 +75,13 @@ body {
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
 
-.quick-icon i { line-height:1; }
-
+/* Transações */
 .transactions {
   border-radius:14px;
   background: #fff;
 }
 
-.circle-icon {
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  background: #f5f5f5;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:1.2rem;
-  color:#111827;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-}
-
-/* barra de navegação */
+/* Bottom navigation (somente mobile) */
 .bottom-nav {
   position: fixed;
   left:0;
@@ -97,6 +89,8 @@ body {
   bottom:0;
   border-top:1px solid rgba(0,0,0,0.06);
   padding:10px 0;
+  background: #fff;
+  z-index: 20;
 }
 
 .nav-item {
@@ -108,12 +102,48 @@ body {
   color: #111827;
 }
 
-.nav-item i { font-size:1.35rem; display:block; margin-bottom:6px; }
-
-@media (min-width: 768px) {
-  .bottom-nav { display:block; }
-  .nav-item { text-align:center; }
+.nav-item i { 
+  font-size:1.35rem; 
+  display:block; 
+  margin-bottom:6px; 
 }
 
+/* ====== RESPONSIVIDADE ====== */
 
-.container { max-width: 920px; }
+/* iPhone / Mobile padrão */
+@media (max-width: 932px) {
+  .card-number { font-size: 1.45rem; }
+  .brand-img { width: 600; }
+}
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 990px) {
+  .brand-img { width: 700px; }
+  .quick-icon { width: 72px; height: 72px; font-size: 1.55rem; }
+}
+
+/* Desktop */
+@media (min-width: 991px) {
+  .container { max-width: 760px; }
+  .bottom-nav { display: none; } /* remove barra inferior no desktop */
+
+  header { padding-top: 50px; }
+  
+  .card-cc {
+    min-height: 240px;
+  }
+
+  .card-number { font-size: 2.1rem; }
+  .brand-img { width: 884px; }
+
+  .quick-icon { 
+    width: 70px; height: 70px;
+    transition: 0.2s;
+  }
+
+  /* efeito hover desktop */
+  .quick-icon:hover {
+    transform: scale(1.08);
+    background: #222;
+  }
+}
